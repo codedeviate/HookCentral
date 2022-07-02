@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="../src/HookCentral.js"></script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      HookCentral.subscribe("test", (payload) => {
+        console.log("We have a test-event 1");
+        console.log(payload);
+      });
+      
+      HookCentral.subscribe("test", (payload) => {
+        console.log("We have a test-event 2");
+        console.log(payload);
+      });
+      
+      HookCentral.globalMutate("test", "Data from global", false);
+    </script>
+  </body>
+</html>
