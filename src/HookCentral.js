@@ -17,9 +17,9 @@
             try {
               data = JSON.parse(data);
               if(data && data.payload) {
-                window.HookCentral.mutate(key, data.payload);
+                window.HookCentral.send(key, data.payload);
               } else {
-                window.HookCentral.mutate(key, null);
+                window.HookCentral.send(key, null);
               }
             } catch(e) {
               console.log("Failed to process payload", data);
