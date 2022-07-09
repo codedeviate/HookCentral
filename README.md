@@ -22,15 +22,26 @@ A simple centralized hook management that allows for communication both within a
        node.innerText = node.innerText + "New incoming test event\nData: " + payload + "\n\n";
      });
      const sendLocalTest = () => {
-       HookCentral.mutate("test", "Whazzup");
+       HookCentral.send("test", "Whazzup");
      }
      const sendGlobalTest = () => {
-       HookCentral.globalMutate("test", "Whazzup from far away", false);
+       HookCentral.globalSend("test", "Whazzup from far away", false);
      }
      const sendTest = () => {
-       HookCentral.globalMutate("test", "Whazzup to all of you", true);
+       HookCentral.globalSend("test", "Whazzup to all of you", true);
      }
    </script>
   </body>
  </html>
 ```
+
+## Methods
+
+### subscribe(eventName)
+Subscribe to the event defined by the eventName
+
+### send(eventName, payload)
+Send the payload as a local event tagged as eventName.
+
+### globalSend(eventName, payload, sendLocal = true)
+Send the payload as a global event tagged as eventName. If the sendLocal variable is set to true then the event is also sent as a local event (i.e. the same as using the send method)
