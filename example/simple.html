@@ -17,13 +17,13 @@
        node.innerText = node.innerText + "New incoming test event\nData: " + payload + "\n\n";
      });
      const sendLocalTest = () => {
-       HookCentral.mutate("test", "Whazzup");
+       HookCentral.send("test", "Whazzup");
      }
      const sendGlobalTest = () => {
-       HookCentral.globalMutate("test", "Whazzup from far away", false);
+       HookCentral.globalSend("test", "Whazzup from far away", false);
      }
      const sendTest = () => {
-       HookCentral.globalMutate("test", "Whazzup to all of you", true);
+       HookCentral.globalSend("test", "Whazzup to all of you", true);
      }
    </script>
   </body>
