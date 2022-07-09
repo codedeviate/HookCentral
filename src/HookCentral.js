@@ -61,15 +61,15 @@
     unsubscribe: (evtName, callback) => {
 
     },
-    mutate: (evtName, payload) => {
-      const mutateEvent = new CustomEvent(evtName, {
+    send: (evtName, payload) => {
+      const sendEvent = new CustomEvent(evtName, {
         detail: payload
       });
-      window.dispatchEvent(mutateEvent);
+      window.dispatchEvent(sendEvent);
     },
-    globalMutate: (evtName, payload, mutateLocal = true) => {
-      if(mutateLocal) {
-        window.HookCentral.mutate(evtName, payload);
+    globalSend: (evtName, payload, sendLocal = true) => {
+      if(sendLocal) {
+        window.HookCentral.send(evtName, payload);
       }
       const data = {
         payload: payload,
